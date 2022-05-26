@@ -23,10 +23,10 @@ export default function CadastroUser(props) {
 
     return (
         <View style={styles.container}>
-            <Text style={{ textAlign: "center" }}>Informe suas credenciais</Text>
+            <Text style={styles.titulo}>Informe os dados abaixo</Text>
             <View style={styles.input}>
                 <TextInput
-                    placeholder='e-mail'
+                    placeholder='E-mail'
                     autoCapitalize='none'
                     keyboardType='email-address'
                     value={email}
@@ -36,7 +36,7 @@ export default function CadastroUser(props) {
             </View>
             <View style={styles.input}>
                 <TextInput
-                    placeholder='senha'
+                    placeholder='Senha'
                     autoCapitalize='none'
                     secureTextEntry
                     value={senha}
@@ -48,6 +48,7 @@ export default function CadastroUser(props) {
                     <Button
                         title='Registrar Usuário'
                         onPress={efetuarCadastro}
+                        color={"#de6118"}
                     />
                 </View>
             </View>
@@ -60,22 +61,31 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-        padding: 10
-        //justifyContent: 'center',
-    }, input: {
+        alignItems: 'center',
+        justifyContent: 'center',
+    }, 
+    
+    titulo: {
+        paddingBottom: 50,
+        fontSize: 25,
+    },
+    input: {
         borderWidth: 1,
-        borderColor: "gray",
+        borderColor: "black",
         margin: 5,
         width: "60%",
         padding: 3,
         borderRadius: 5
     },
     linha: {
+        paddingTop: 50,
         flexDirection: "row"
     },
     coluna: {
-        flex: 1,
-        marginLeft: 5
-    }
+        flex: 2,
+        marginLeft: 20,
+        marginRight: 20,
+        paddingTop: 1,
+    },
 
 });

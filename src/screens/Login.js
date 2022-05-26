@@ -57,7 +57,7 @@ export default function Login(props) {
             <Text style={styles.titulo}>Bem vindos ao Virtual Waiter</Text>
             <View style={styles.input}>
                 <TextInput
-                    placeholder='e-mail'
+                    placeholder='E-mail'
                     autoCapitalize='none'
                     keyboardType='email-address'
                     value={email}
@@ -67,7 +67,7 @@ export default function Login(props) {
             </View>
             <View style={styles.input}>
                 <TextInput
-                    placeholder='senha'
+                    placeholder='Senha'
                     autoCapitalize='none'
                     secureTextEntry
                     value={senha}

@@ -25,7 +25,7 @@ export default function App() {
           options={
             {
               title: "Login",
-              headerTintColor: 'black',
+              headerTintColor: '#fff',
               headerTitleAlign: 'center',
               headerStyle: {
                 backgroundColor: '#de6118'
@@ -47,6 +47,9 @@ export default function App() {
               headerStyle: {
                 backgroundColor: '#de6118'
               },
+              headerTitleStyle: {
+                fontSize: 30
+              },
             }
           }
         />
@@ -60,6 +63,9 @@ export default function App() {
               headerTitleAlign: 'center',
               headerStyle: {
                 backgroundColor: '#de6118'
+              },
+              headerTitleStyle: {
+                fontSize: 30
               },
             }
           }
