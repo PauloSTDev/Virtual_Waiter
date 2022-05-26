@@ -54,7 +54,7 @@ export default function Login(props) {
 
     return (
         <View style={styles.container}>
-            <Text>Informe suas credenciais</Text>
+            <Text style={styles.titulo}>Bem vindos ao Virtual Waiter</Text>
             <View style={styles.input}>
                 <TextInput
                     placeholder='e-mail'
@@ -80,24 +80,26 @@ export default function Login(props) {
                     title="Lembre-me"
                     checked={lembreme}
                     onPress={lembrar}
+                    uncheckedColor={"black"}
+                    checkedColor={"black"}
+                    
                 />
             </View>
             <View style={styles.linha}>
                 
                 <View style={styles.coluna}>
                     <Button
-                    style={styles.button}
                         title='Registre-se'
                         onPress={() => navigation.navigate("CadastroUser")}
+                        color={"#de6118"}
                     />
 
                 </View>
                 <View style={styles.coluna}>
                     <Button
-                    style={styles.button}
                         title='Entrar'
                         onPress={efetuarLogin}
-                        color={""}
+                        color={"#de6118"}
                     />
                 </View>
             </View>
@@ -112,9 +114,15 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
-    }, input: {
+    }, 
+    
+    titulo: {
+        paddingBottom: 50,
+        fontSize: 25,
+    },
+    input: {
         borderWidth: 1,
-        borderColor: "gray",
+        borderColor: "black",
         margin: 5,
         width: "60%",
         padding: 3,
@@ -124,13 +132,11 @@ const styles = StyleSheet.create({
         flexDirection: "row"
     },
     coluna: {
-        flex: 1,
-        marginLeft: 5
+        flex: 2,
+        marginLeft: 20,
+        marginRight: 20,
+        paddingTop: 1,
     },
-    button: {
-        color: "red",
-        textShadowColor: "black",
-        tintColor: "black"
-    }
+
 
 });

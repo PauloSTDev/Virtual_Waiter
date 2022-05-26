@@ -23,21 +23,45 @@ export default function App() {
           name="Login"
           component={Login}
           options={
-            { title: "Login", headerTitleAlign: 'center'}
+            {
+              title: "Login",
+              headerTintColor: 'black',
+              headerTitleAlign: 'center',
+              headerStyle: {
+                backgroundColor: '#de6118'
+              },
+              headerTitleStyle: {
+                fontSize: 30
+              },
+            }
           }
         />
         <Stack.Screen
           name="Menu"
           component={Menu}
           options={
-            { title: "Menu", headerTitleAlign: 'center'}
+            {
+              title: "Menu",
+              headerTintColor: '#fff',
+              headerTitleAlign: 'center',
+              headerStyle: {
+                backgroundColor: '#de6118'
+              },
+            }
           }
         />
         <Stack.Screen
           name="CadastroUser"
           component={CadastroUser}
           options={
-            { title: "Registro de Usuários", headerTitleAlign: 'center' }
+            {
+              title: "Registro de Usuários",
+              headerTintColor: '#fff',
+              headerTitleAlign: 'center',
+              headerStyle: {
+                backgroundColor: '#de6118'
+              },
+            }
           }
         />
       </Stack.Navigator>
