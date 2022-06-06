@@ -65,7 +65,7 @@ export default function App() {
                 backgroundColor: '#de6118'
               },
               headerTitleStyle: {
-                fontSize: 30
+                fontSize: 25
               },
             }
           }
