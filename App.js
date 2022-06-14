@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './src/screens/Login';
 import Menu from './src/screens/Menu';
 import CadastroUser from './src/screens/CadastroUser';
+import CadastroPizza from './src/screens/CadastroPizza';
 
 
 import { LogBox } from 'react-native';
@@ -56,6 +57,23 @@ export default function App() {
         <Stack.Screen
           name="CadastroUser"
           component={CadastroUser}
+          options={
+            {
+              title: "Registro de Usuários",
+              headerTintColor: '#fff',
+              headerTitleAlign: 'center',
+              headerStyle: {
+                backgroundColor: '#de6118'
+              },
+              headerTitleStyle: {
+                fontSize: 25
+              },
+            }
+          }
+        />
+        <Stack.Screen
+          name="CadastroPizza"
+          component={CadastroPizza}
           options={
             {
               title: "Registro de Usuários",

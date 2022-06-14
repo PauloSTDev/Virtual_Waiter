@@ -3,7 +3,6 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
 import * as loginService from "../services/LoginService"
 import { CheckBox } from '@rneui/themed';
-
 import AsyncStorage from "@react-native-async-storage/async-storage"
 
 export default function Login(props) {
@@ -54,7 +53,7 @@ export default function Login(props) {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.titulo}>Bem vindos ao Virtual Waiter</Text>
+            <Text style={styles.titulo}>Bem vindo(a) ao Virtual Waiter</Text>
             <View style={styles.input}>
                 <TextInput
                     placeholder='E-mail'
