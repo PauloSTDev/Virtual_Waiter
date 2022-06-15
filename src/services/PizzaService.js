@@ -45,8 +45,7 @@ export const deletePizza = (key) => {
     return new Promise(async (resolve, reject) => {
 
         try {
-            await deleteDoc(doc(db, "pizza", key))
-            console.log("Tentando excluir");
+            await deleteDoc(doc(db, "pizzas", key))
             resolve()
         } catch (error) {
             console.log(error)
