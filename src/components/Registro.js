@@ -4,8 +4,7 @@ import * as pizzaService from '../services/PizzaService';
 
 export default function Registro(props) {
 
-    const data = props.dados
-    console.log("Dados ",data);
+    const data = props.dados;
 
     const excluirPizza = () => {
 
@@ -47,6 +46,12 @@ export default function Registro(props) {
             </View>
             <View style={styles.linha}>
                 <View style={styles.coluna}>
+                    <Text style={styles.campo}>Imagem</Text>
+                    <Text>{data.imagem}</Text>
+                </View>
+            </View>
+            <View style={styles.linha}>
+                <View style={styles.coluna}>
                 </View>
                 <View style={styles.coluna}>
                 </View>
@@ -74,7 +79,7 @@ const styles = StyleSheet.create({
         flexDirection: "row"
     },
     campo: {
-        width: 90
+        width: 110
     }
 
 })

@@ -31,7 +31,6 @@ export const getPizza = () => {
                 data.key = item.id
                 registros.push(data)
             })
-            console.log("Registros: ",registros);
             resolve(registros)
         } catch (error) {
             console.log("Erro:", error)
@@ -47,6 +46,7 @@ export const deletePizza = (key) => {
 
         try {
             await deleteDoc(doc(db, "pizza", key))
+            console.log("Tentando excluir");
             resolve()
         } catch (error) {
             console.log(error)

@@ -21,7 +21,7 @@ export default function Menu(props) {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerTitleAlign: "center",
-      headerLeft: () => <Button title='+' onPress={() => navigation.navigate("CadastroPizza")} color={"#de6118"} />,
+      headerLeft: () => <Button title='Config' onPress={() => navigation.navigate("CadastroPizza")} color={"#de6118"} />,
       headerRight: () => <Button title='Logoff' onPress={logoff} color={"#de6118"}/>
     })
 
