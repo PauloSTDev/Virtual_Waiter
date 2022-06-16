@@ -52,11 +52,10 @@ export default function Registro(props) {
             </View>
             <View style={styles.linha}>
                 <View style={styles.coluna}>
+                    <Button title='Editar' color={'#de6118'} onPress={() => console.log("Editar")} />
                 </View>
                 <View style={styles.coluna}>
-                </View>
-                <View style={styles.coluna}>
-                    <Button title='Excluir' color={'red'} onPress={excluirPizza} />
+                    <Button title='Excluir' color={'#de6118'} onPress={excluirPizza} />
                 </View>
             </View>
         </View >
@@ -72,14 +71,16 @@ const styles = StyleSheet.create({
         margin: 5
     },
     linha: {
-        flexDirection: "row"
+        flexDirection: "row",
     },
     coluna: {
+        paddingBottom: 10,
         flex: 1,
-        flexDirection: "row"
+        flexDirection: "row",
+        
     },
     campo: {
         width: 110
-    }
+    },
 
 })

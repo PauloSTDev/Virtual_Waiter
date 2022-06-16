@@ -6,11 +6,11 @@ import { searchByAddress } from "./LocationService"
 export const createPizza = (dados) => {
     return new Promise(async (resolve, reject) => {
         try {
-            /*let coordenadas = await searchByAddress(dados.endereco)
+            let coordenadas = await searchByAddress(dados.endereco)
             let lat = coordenadas.lat
             let lng = coordenadas.lng
             dados.lat = lat
-            dados.lng = lng*/
+            dados.lng = lng
             const docId = await addDoc(collection(db, "pizzas"), dados)
             resolve(docId)
         } catch (error) {
