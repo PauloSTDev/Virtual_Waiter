@@ -1,14 +1,22 @@
 import { StyleSheet, Text, View, Button, Alert, Dimensions } from 'react-native'
-import React, { useLayoutEffect } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import * as Logoff from '../../services/firebase_authentication_service/Logoff'
 import { FloatingAction } from "react-native-floating-action";
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import MapView from "react-native-maps";
+import MapView, {Marker} from "react-native-maps";
+import * as Location from "expo-location";
 
 
 export default function Menu(props) {
+
+  const [location, setlocation] = useState({
+    coords: {
+      latitude: -28.2450385,
+      longitude: -52.4265506,
+    }
+  })
 
   const actions = [
     {
@@ -54,13 +62,24 @@ export default function Menu(props) {
     }
   }
 
+  const GetMyPosition = async () => {
+    let {status} = await Location.requestForegroundPermissionsAsync();
+    if (status !== "granted") {
+      return console.log("permissão negada!");
+    } else {
+      let myLocation = await Location.getCurrentPositionAsync({})
+      console.log(myLocation);
+      setlocation(myLocation)
+    }
+  }
+
   useLayoutEffect(() => {
+    GetMyPosition()
     navigation.setOptions({
       headerTitleAlign: "center",
       headerLeft: () => <Button title='Config' onPress={() => navigation.navigate("CadastroPizza")} color={"#de6118"} />,
       headerRight: () => <Button title='Logoff' onPress={logoff} color={"#de6118"} />
     })
-
   }, [])
 
 
@@ -68,8 +87,23 @@ export default function Menu(props) {
     <View style={styles.container}>
       <MapView
       style={styles.map}
-
-      />
+      initialRegion={{
+        latitude: location.coords.latitude,
+        longitude: location.coords.longitude,
+        latitudeDelta: 0.01,
+        longitudeDelta: 0.01,
+      }}>
+        
+      {location && <Marker
+      coordinate={{
+        latitude: location.coords.latitude,
+        longitude: location.coords.longitude,
+      }}
+      title="Minha posição"
+      icon={require("../../../assets/my_location.png")}
+      />  
+    }
+    </MapView>
       <FloatingAction
         actions={actions}
         color={"#de6118"}
