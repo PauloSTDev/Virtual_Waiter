@@ -1,6 +1,6 @@
-import db from "../back-end/firebaseConnect"
+import db from "../../back-end/firebaseConnect"
 import { collection, addDoc, getDocs, deleteDoc, doc } from 'firebase/firestore'
-import { searchByAddress } from "./LocationService"
+import { searchByAddress } from "../google_geocoding_api_service/LocationService"
 
 
 export const createPizza = (dados) => {

@@ -1,7 +1,7 @@
 import React, { useState, useLayoutEffect } from 'react'
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, Button, Alert, FlatList } from 'react-native';
-import * as pizzaService from "../services/PizzaService";
+import * as pizzaService from "../services/firebase_firestore_database_services/PizzaService";
 import Registro from '../components/Registro';
 
 export default function CadastroPizza(props) {

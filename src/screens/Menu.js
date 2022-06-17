@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Button, Alert } from 'react-native'
 import React, { useLayoutEffect } from 'react'
-import * as loginService from '../services/LoginService'
+import * as loginService from '../services/firebase_authentication_service/LoginService'
 import { FloatingAction } from "react-native-floating-action";
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
