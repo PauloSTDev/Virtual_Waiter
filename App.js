@@ -2,16 +2,14 @@ import * as React from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import Login from './src/screens/Login';
-import Menu from './src/screens/Menu';
-import CadastroUser from './src/screens/CadastroUser';
-import CadastroPizza from './src/screens/CadastroPizza';
-
-
+import Login from './src/screens/screen_users/Login';
+import Menu from './src/screens/screen_users/Menu';
+import CadastroUser from './src/screens/screen_users/CadastroUser';
+import CadastroPizza from './src/screens/screen_admin/CadastroPizza';
 import { LogBox } from 'react-native';
-import ModeloExpo from './src/screens/ModeloExpo';
-import Desenvolvedor from './src/screens/Desenvolvedor';
-import Arquitetura from './src/screens/Arquitetura';
+import ModeloExpo from './src/screens/screen_users/ModeloExpo';
+import Desenvolvedor from './src/screens/screen_users/Desenvolvedor';
+import Arquitetura from './src/screens/screen_users/Arquitetura';
 
 LogBox.ignoreLogs([
   'AsyncStorage'

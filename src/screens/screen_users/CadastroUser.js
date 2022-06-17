@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
-import * as loginService from "../services/firebase_authentication_service/LoginService"
+import * as createUser from "../../services/firebase_authentication_service/CreateUser"
 
 export default function CadastroUser(props) {
 
@@ -12,7 +12,7 @@ export default function CadastroUser(props) {
     const efetuarCadastro = async () => {
 
         try {
-            let retorno = await loginService.createUser(email, senha)
+            let retorno = await createUser.createUser(email, senha)
             Alert.alert(retorno)
             navigation.navigate("Login")
         } catch (error) {

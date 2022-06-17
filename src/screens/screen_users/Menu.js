@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Button, Alert } from 'react-native'
 import React, { useLayoutEffect } from 'react'
-import * as loginService from '../services/firebase_authentication_service/LoginService'
+import * as Logoff from '../../services/firebase_authentication_service/Logoff'
 import { FloatingAction } from "react-native-floating-action";
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
@@ -46,12 +46,11 @@ export default function Menu(props) {
   const logoff = async () => {
 
     try {
-      await loginService.logoff()
+      await Logoff.logoff()
       navigation.replace("Login")
     } catch (error) {
       Alert.alert(error)
     }
-
   }
 
   useLayoutEffect(() => {
