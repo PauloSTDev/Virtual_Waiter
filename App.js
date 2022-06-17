@@ -11,6 +11,7 @@ import CadastroPizza from './src/screens/CadastroPizza';
 import { LogBox } from 'react-native';
 import ModeloExpo from './src/screens/ModeloExpo';
 import Desenvolvedor from './src/screens/Desenvolvedor';
+import Arquitetura from './src/screens/Arquitetura';
 
 LogBox.ignoreLogs([
   'AsyncStorage'
@@ -113,6 +114,23 @@ export default function App() {
           options={
             {
               title: "Desenvolvedor",
+              headerTintColor: '#fff',
+              headerTitleAlign: 'center',
+              headerStyle: {
+                backgroundColor: '#de6118'
+              },
+              headerTitleStyle: {
+                fontSize: 25
+              },
+            }
+          }
+        />
+        <Stack.Screen
+          name="Arquitetura"
+          component={Arquitetura}
+          options={
+            {
+              title: "Arquitetura",
               headerTintColor: '#fff',
               headerTitleAlign: 'center',
               headerStyle: {
