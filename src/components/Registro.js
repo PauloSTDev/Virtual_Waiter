@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Button, Alert, Image } from 'react-native'
 import React, { useLayoutEffect } from 'react'
-import * as pizzaService from '../services/PizzaService';
+import * as pizzaService from '../services/firebase_firestore_database_services/PizzaService';
 
 export default function Registro(props) {
 

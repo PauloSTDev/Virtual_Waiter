@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
-import * as loginService from "../services/LoginService"
+import * as loginService from "../services/firebase_authentication_service/LoginService"
 
 export default function CadastroUser(props) {
 
