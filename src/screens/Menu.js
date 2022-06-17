@@ -16,7 +16,6 @@ export default function Menu(props) {
       name: "CadastroPizza",
       position: 4,
       color: '#de6118',
-      onPressItem: () => navigation.navigate("CadastroPizza")
     },
     {
       text: "Menu",
@@ -39,6 +38,13 @@ export default function Menu(props) {
       position: 1,
       color: '#de6118',
 
+    },
+    {
+      text: "Arquitetura",
+      icon: <MaterialIcons name="engineering" size={24} color="white" />,
+      name: "Arquitetura",
+      position: 0,
+      color: '#de6118',
     },
   ];
 
