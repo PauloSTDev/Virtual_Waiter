@@ -4,12 +4,9 @@ import * as pizzaService from '../services/PizzaService';
 
 export default function Registro(props) {
 
-
     const data = props.dados;
 
     const excluirPizza = () => {
-
-
         Alert.alert("Deseja Excluir:", "Esses dados serão apagados para sempre!", [
             {
                 text: "Cancel",

@@ -28,14 +28,14 @@ export default function Menu(props) {
     {
       text: "Modelo Expo",
       icon: <MaterialCommunityIcons name="react" size={24} color="white" />,
-      name: "modelo_expo",
+      name: "ModeloExpo",
       position: 2,
       color: '#de6118'
     },
     {
       text: "Desenvolvedor",
       icon: <MaterialIcons name="group-work" size={24} color="white" />,
-      name: "desenvolvedor",
+      name: "Desenvolvedor",
       position: 1,
       color: '#de6118',
 
