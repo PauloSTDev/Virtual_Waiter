@@ -90,10 +90,10 @@ export default function Menu(props) {
       initialRegion={{
         latitude: location.coords.latitude,
         longitude: location.coords.longitude,
-        latitudeDelta: 0.01,
-        longitudeDelta: 0.01,
+        latitudeDelta: 0.07,
+        longitudeDelta: 0.07,
       }}>
-        
+
       {location && <Marker
       coordinate={{
         latitude: location.coords.latitude,
