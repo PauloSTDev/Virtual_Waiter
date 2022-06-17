@@ -1,10 +1,11 @@
-import { StyleSheet, Text, View, Button, Alert } from 'react-native'
+import { StyleSheet, Text, View, Button, Alert, Dimensions } from 'react-native'
 import React, { useLayoutEffect } from 'react'
 import * as Logoff from '../../services/firebase_authentication_service/Logoff'
 import { FloatingAction } from "react-native-floating-action";
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import MapView from "react-native-maps";
 
 
 export default function Menu(props) {
@@ -65,16 +66,15 @@ export default function Menu(props) {
 
   return (
     <View style={styles.container}>
+      <MapView
+      style={styles.map}
+
+      />
       <FloatingAction
         actions={actions}
         color={"#de6118"}
         onPressItem={name => {
-          if (name == "Menu") {
-            console.log("Já estamos na Screen selecionada");
-          }
-          else {
             navigation.navigate(name)
-          }
         }}
       />
     </View>
@@ -82,12 +82,14 @@ export default function Menu(props) {
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    padding: 10
     //justifyContent: 'center',
-}
+  },
+  map: {
+    width: Dimensions.get("window").width,
+    height: Dimensions.get("window").height
+  }
 
 })
