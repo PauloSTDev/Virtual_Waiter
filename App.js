@@ -94,7 +94,7 @@ export default function App() {
           component={ModeloExpo}
           options={
             {
-              title: "ModeloExpo",
+              title: "Modelo Expo",
               headerTintColor: '#fff',
               headerTitleAlign: 'center',
               headerStyle: {
