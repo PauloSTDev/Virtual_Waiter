@@ -3,46 +3,8 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, Button, Alert, FlatList } from 'react-native';
 import * as pizzaService from "../services/PizzaService";
 import Registro from '../components/Registro';
-import { FloatingAction } from "react-native-floating-action";
-import { AntDesign } from '@expo/vector-icons';
-import { MaterialIcons } from '@expo/vector-icons';
-import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 
 export default function CadastroPizza(props) {
-
-    const actions = [
-        {
-            text: "Registros",
-            icon: <AntDesign name="edit" size={24} color="white" />,
-            name: "registros",
-            position: 4,
-            color: '#de6118',
-
-        
-        },
-        {
-            text: "Home",
-            icon: <AntDesign name="home" size={24} color="white" />,
-            name: "home",
-            position: 3,
-            color: '#de6118',
-        },
-        {
-            text: "Modelo Expo",
-            icon: <MaterialCommunityIcons name="react" size={24} color="white" />,
-            name: "modelo_expo",
-            position: 2,
-            color: '#de6118'
-        },
-        {
-            text: "Desenvolvedor",
-            icon: <MaterialIcons name="group-work" size={24} color="white" />,
-            name: "desenvolvedor",
-            position: 1,
-            color: '#de6118',
-      
-        },
-    ];
 
     const [form, setForm] = useState({})
     const {navigation } = props
@@ -119,15 +81,7 @@ export default function CadastroPizza(props) {
                 data={pizza}
                 renderItem={({ item }) => <Registro dados={item} buscarPizza={buscarPizza} navigation={navigation} />}
                 keyExtractor={item => item.key}
-            />
-            <FloatingAction
-                actions={actions}
-                color={"#de6118"}
-                onPressItem={name => {
-                    console.log(`selected button: ${name}`);
-                }}
-            />
-            
+            />            
         </View >
     );
 }
