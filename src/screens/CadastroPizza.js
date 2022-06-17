@@ -52,10 +52,9 @@ export default function CadastroPizza(props) {
             </View>
             <View style={styles.input}>
                 <TextInput
-                    placeholder='Imagem'
+                    placeholder='Id da Imagem'
                     value={form.imagem_id}
                     onChangeText={(value) => setForm(Object.assign({}, form, { imagem_id: value }))}
-
                 />
             </View>
             <View style={styles.input}>

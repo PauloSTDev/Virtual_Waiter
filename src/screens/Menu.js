@@ -14,13 +14,6 @@ export default function Menu(props) {
       text: "Cadastro de Pizzas",
       icon: <AntDesign name="edit" size={24} color="white" />,
       name: "CadastroPizza",
-      position: 4,
-      color: '#de6118',
-    },
-    {
-      text: "Menu",
-      icon: <AntDesign name="home" size={24} color="white" />,
-      name: "Menu",
       position: 3,
       color: '#de6118',
     },
