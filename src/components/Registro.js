@@ -1,8 +1,9 @@
 import { StyleSheet, Text, View, Button, Alert } from 'react-native'
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import * as pizzaService from '../services/PizzaService';
 
 export default function Registro(props) {
+
 
     const data = props.dados;
 
@@ -30,34 +31,38 @@ export default function Registro(props) {
     }
 
 
+
     return (
-        <View style={styles.container}>
-            <View style={styles.linha}>
-                <View style={styles.coluna}>
-                    <Text style={styles.campo}>Nome da Pizza:</Text>
-                    <Text>{data.nome_pizza}</Text>
+        <View >
+            <View style={styles.container}>
+                <View style={styles.linha}>
+                    <View style={styles.coluna}>
+                        <Text style={styles.campo}>Nome da Pizza:</Text>
+                        <Text>{data.nome_pizza}</Text>
+                    </View>
+                </View>
+                <View style={styles.linha}>
+                    <View style={styles.coluna}>
+                        <Text style={styles.campo}>Endereço:</Text>
+                        <Text>{data.endereco}</Text>
+                    </View>
+                </View>
+                <View style={styles.linha}>
+                    <View style={styles.coluna}>
+                        <Text style={styles.campo}>Imagem</Text>
+                        <Text>{data.imagem}</Text>
+                    </View>
+                </View>
+                <View style={styles.linha}>
+                    <View style={styles.coluna}>
+                        <Button title='Editar' color={'#de6118'} onPress={() => console.log("Editar")} />
+                    </View>
+                    <View style={styles.coluna}>
+                        <Button title='Excluir' color={'#de6118'} onPress={excluirPizza} />
+                    </View>
                 </View>
             </View>
-            <View style={styles.linha}>
-                <View style={styles.coluna}>
-                    <Text style={styles.campo}>Endereço:</Text>
-                    <Text>{data.endereco}</Text>
-                </View>
-            </View>
-            <View style={styles.linha}>
-                <View style={styles.coluna}>
-                    <Text style={styles.campo}>Imagem</Text>
-                    <Text>{data.imagem}</Text>
-                </View>
-            </View>
-            <View style={styles.linha}>
-                <View style={styles.coluna}>
-                    <Button title='Editar' color={'#de6118'} onPress={() => console.log("Editar")} />
-                </View>
-                <View style={styles.coluna}>
-                    <Button title='Excluir' color={'#de6118'} onPress={excluirPizza} />
-                </View>
-            </View>
+
         </View >
     )
 }
@@ -77,10 +82,19 @@ const styles = StyleSheet.create({
         paddingBottom: 10,
         flex: 1,
         flexDirection: "row",
-        
+
     },
     campo: {
         width: 110
     },
 
+    touchableOpacityStyle: {
+        position: 'absolute',
+        width: 50,
+        height: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+        right: 30,
+        bottom: 30,
+    },
 })
