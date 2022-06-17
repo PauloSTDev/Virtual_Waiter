@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Button, Alert } from 'react-native'
+import { StyleSheet, Text, View, Button, Alert, Image } from 'react-native'
 import React, { useLayoutEffect } from 'react'
 import * as pizzaService from '../services/PizzaService';
 
@@ -30,8 +30,6 @@ export default function Registro(props) {
 
     }
 
-
-
     return (
         <View >
             <View style={styles.container}>
@@ -49,20 +47,20 @@ export default function Registro(props) {
                 </View>
                 <View style={styles.linha}>
                     <View style={styles.coluna}>
-                        <Text style={styles.campo}>Imagem</Text>
-                        <Text>{data.imagem}</Text>
+                        <Text style={styles.campo}>Imagem Id:</Text>
+                        <Text>{data.imagem_id}</Text>
                     </View>
                 </View>
+                <Image />
                 <View style={styles.linha}>
                     <View style={styles.coluna}>
-                        <Button title='Editar' color={'#de6118'} onPress={() => console.log("Editar")} />
+                        <Button title='Editar' color={'red'} onPress={() => console.log("Editar")} />
                     </View>
                     <View style={styles.coluna}>
-                        <Button title='Excluir' color={'#de6118'} onPress={excluirPizza} />
+                        <Button title='Excluir' color={'red'} onPress={excluirPizza} />
                     </View>
                 </View>
             </View>
-
         </View >
     )
 }
