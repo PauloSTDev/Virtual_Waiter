@@ -120,6 +120,7 @@ useEffect(() => {
       icon={require("../../../assets/my_location.png")}
       />  
     }
+
     {pizza.map((pizza, key)=> <Marker
     key={key}
     coordinate={{
@@ -128,7 +129,7 @@ useEffect(() => {
     }}
     icon={require("../../../assets/pizza_location.png")}
     title={"Pizza de "+pizza.nome_pizza}
-
+    onPress={(()=> Alert.alert("Pizza de "+pizza.nome_pizza, "Status: Em processamento\nEstimativa de Tempo: 30 mins"))}
     />)}
 
     </MapView>

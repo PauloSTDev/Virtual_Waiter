@@ -1,5 +1,5 @@
 import db from "../../back-end/firebaseConnect"
-import { collection, addDoc, getDocs, deleteDoc, doc } from 'firebase/firestore'
+import { collection, addDoc, getDocs, deleteDoc, doc,  } from 'firebase/firestore'
 
 
 export const createPizza = (dados) => {
