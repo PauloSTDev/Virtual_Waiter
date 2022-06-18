@@ -1,7 +1,8 @@
 import React, { useState, useLayoutEffect } from 'react'
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, Button, Alert, FlatList } from 'react-native';
-import * as pizzaService from "../../services/firebase_firestore_database_services/PizzaService";
+import * as PostPizzaService from "../../services/firebase_firestore_database_services/PostPizzaService";
+import * as GetPizzaService from "../../services/firebase_firestore_database_services/GetPizzaService";
 import Registro from '../../components/Registro';
 
 export default function CadastroPizza(props) {
@@ -12,7 +13,7 @@ export default function CadastroPizza(props) {
 
     const buscarPizza = async () => {
         try {
-            let dados = await pizzaService.getPizza()
+            let dados = await GetPizzaService.getPizza()
             console.log(dados)
             setPizza(dados)
         } catch (error) {
@@ -27,7 +28,7 @@ export default function CadastroPizza(props) {
     const efetuarCadastro = async () => {
         if (form.nome_pizza && form.imagem_id && form.endereco) {
             try {
-                await pizzaService.createPizza(form)
+                await PostPizzaService.postPizza(form)
                 Alert.alert("Dados Registrados com Sucesso")
                 setForm({})
                 navigation.navigate("Menu", { atualizar: true })

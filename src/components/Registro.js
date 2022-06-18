@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, Button, Alert, Image } from 'react-native'
 import React, { useLayoutEffect } from 'react'
-import * as pizzaService from '../services/firebase_firestore_database_services/PizzaService';
+import * as GetPizzaService from '../services/firebase_firestore_database_services/GetPizzaService';
+import * as DeletePizzaService from '../services/firebase_firestore_database_services/DeletePizzaService';
 
 export default function Registro(props) {
 
@@ -15,7 +16,7 @@ export default function Registro(props) {
             {
                 text: "OK", onPress: async () => {
                     try {
-                        await pizzaService.deletePizza(data.key)
+                        await DeletePizzaService.deletePizza(data.key)
                         Alert.alert("Dados Excluídos com Sucesso")
                         props.navigation.navigate("Menu", { atualizar: true })
                     } catch (error) {
