@@ -14,7 +14,6 @@ export default function CadastroPizza(props) {
     const buscarPizza = async () => {
         try {
             let dados = await GetPizzaService.getPizza()
-            console.log(dados)
             setPizza(dados)
         } catch (error) {
 

@@ -52,7 +52,7 @@ export default function Registro(props) {
                 <Image />
                 <View style={styles.linha}>
                     <View style={styles.coluna}>
-                        <Button title='Editar' color={'red'} onPress={() => console.log("Editar")} />
+                        <Button title='Editar' color={'red'} onPress={() => props.navigation.navigate("UpdateCadastroPizza", {data})} />
                     </View>
                     <View style={styles.coluna}>
                         <Button title='Excluir' color={'red'} onPress={excluirPizza} />

@@ -3,7 +3,7 @@ function listFilesAndDirectories(reference) {
     return reference.then(
         result => {
             result.items.forEach(ref => {
-                console.log(ref.fullPath);
+                //console.log(ref.fullPath);
             });
 
             return Promise.resolve();

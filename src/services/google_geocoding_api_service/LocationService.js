@@ -9,7 +9,7 @@ export const searchByAddress = (endereco) => {
         Geocoder.from(endereco)
         .then( result => {
             var location = result.results[0].geometry.location //Devolve lat e lng
-            console.log(location);
+            //console.log(location);
             resolve(location)
 
         })
