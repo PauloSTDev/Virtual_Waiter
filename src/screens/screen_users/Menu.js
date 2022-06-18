@@ -7,11 +7,14 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import MapView, {Marker} from "react-native-maps";
 import * as Location from "expo-location";
+import { useEffect } from 'react';
+import * as pizzaService from "../../services/firebase_firestore_database_services/PizzaService";
 
 
 export default function Menu(props) {
 
-  const [location, setlocation] = useState({
+  const [pizza, setPizza] = useState([])
+  const [location, setLocation] = useState({
     coords: {
       latitude: -28.2450385,
       longitude: -52.4265506,
@@ -50,6 +53,16 @@ export default function Menu(props) {
     },
   ];
 
+  const buscarPizza = async () => {
+    try {
+        let dados = await pizzaService.getPizza()
+        console.log(dados)
+        setPizza(dados)
+    } catch (error) {
+
+    }
+}
+
   const { navigation } = props
 
   const logoff = async () => {
@@ -69,12 +82,16 @@ export default function Menu(props) {
     } else {
       let myLocation = await Location.getCurrentPositionAsync({})
       console.log(myLocation);
-      setlocation(myLocation)
+      setLocation(myLocation)
     }
   }
+useEffect(() => {
+  GetMyPosition()
+  buscarPizza()
+}, [props])
+
 
   useLayoutEffect(() => {
-    GetMyPosition()
     navigation.setOptions({
       headerTitleAlign: "center",
       headerLeft: () => <Button title='Config' onPress={() => navigation.navigate("CadastroPizza")} color={"#de6118"} />,
@@ -103,6 +120,17 @@ export default function Menu(props) {
       icon={require("../../../assets/my_location.png")}
       />  
     }
+    {pizza.map((pizza, key)=> <Marker
+    key={key}
+    coordinate={{
+      latitude: pizza.lat,
+      longitude: pizza.lng,
+    }}
+    icon={require("../../../assets/pizza_location.png")}
+    title={"Pizza de "+pizza.nome_pizza}
+
+    />)}
+
     </MapView>
       <FloatingAction
         actions={actions}
