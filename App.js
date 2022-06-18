@@ -11,6 +11,7 @@ import ModeloExpo from './src/screens/screen_users/ModeloExpo';
 import Desenvolvedor from './src/screens/screen_users/Desenvolvedor';
 import Arquitetura from './src/screens/screen_users/Arquitetura';
 import UpdateCadastroPizza from './src/screens/screen_admin/UpdateCadastroPizza';
+import CadastroBebidas from './src/screens/screen_admin/CadastroBebidas';
 
 LogBox.ignoreLogs([
   'AsyncStorage'
@@ -147,6 +148,23 @@ export default function App() {
           options={
             {
               title: "Atualizar Cadastro",
+              headerTintColor: '#fff',
+              headerTitleAlign: 'center',
+              headerStyle: {
+                backgroundColor: '#de6118'
+              },
+              headerTitleStyle: {
+                fontSize: 25
+              },
+            }
+          }
+        />
+        <Stack.Screen
+          name="CadastroBebidas"
+          component={CadastroBebidas}
+          options={
+            {
+              title: "Cadastro de Bebidas",
               headerTintColor: '#fff',
               headerTitleAlign: 'center',
               headerStyle: {
