@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View, TextInput, Button, StatusBar, Alert} from 'react-native'
 import React, { useLayoutEffect, useState } from 'react'
-import * as PostPizzaService from "../../services/firebase_firestore_database_services/PostPizzaService";
-import * as DeletePizzaService from "../../services/firebase_firestore_database_services/DeletePizzaService";
+import * as UpdatePizzaService from "../../services/firebase_firestore_database_services/UpdatePizzaService";
 
 export default function UpdateCadastroPizza(props) {
     const dados = props.route.params.data;
@@ -19,14 +18,13 @@ export default function UpdateCadastroPizza(props) {
     const AtualizarCadastro = async () => {
         if (form.nome_pizza && form.imagem_id && form.endereco) {
             try {
-                await PostPizzaService.postPizza(form)
+                await UpdatePizzaService.updatePizza(form, dados.key)
+                setForm({})
+                props.navigation.navigate("Menu", { atualizar: true })
                 Alert.alert("Dados Atualizados com Sucesso")
             } catch (error) {
                 Alert.alert("Erro ao registrar", "Verifique os campos, em especial o endereço!")
             }
-            await DeletePizzaService.deletePizza(dados.key)
-            setForm({})
-            props.navigation.navigate("Menu", { atualizar: true })
         } else {
             Alert.alert("Campos não preenchidos corretamente!")
         }
