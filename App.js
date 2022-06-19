@@ -12,6 +12,7 @@ import Sobre from './src/screens/screen_users/Sobre.js';
 import Arquitetura from './src/screens/screen_users/Arquitetura';
 import UpdateCadastroPizza from './src/screens/screen_admin/UpdateCadastroPizza';
 import CadastroBebidas from './src/screens/screen_admin/CadastroBebidas';
+import Faq from './src/screens/screen_users/FAQ';
 
 LogBox.ignoreLogs([
   'AsyncStorage'
@@ -165,6 +166,23 @@ export default function App() {
           options={
             {
               title: "Cadastro de Bebidas",
+              headerTintColor: '#fff',
+              headerTitleAlign: 'center',
+              headerStyle: {
+                backgroundColor: '#de6118'
+              },
+              headerTitleStyle: {
+                fontSize: 25
+              },
+            }
+          }
+        />
+        <Stack.Screen
+          name="Faq"
+          component={Faq}
+          options={
+            {
+              title: "Faq",
               headerTintColor: '#fff',
               headerTitleAlign: 'center',
               headerStyle: {
