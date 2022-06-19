@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, TextInput, Button, StatusBar, Alert} from 'react-native'
 import React, { useLayoutEffect, useState } from 'react'
-import * as UpdatePizzaService from "../../services/firebase_firestore_database_services/UpdatePizzaService";
+import * as UpdateService from "../../services/firebase_firestore_database_services/UpdateService";
 
 export default function UpdateCadastroPizza(props) {
     const dados = props.route.params.data;
@@ -18,7 +18,7 @@ export default function UpdateCadastroPizza(props) {
     const AtualizarCadastro = async () => {
         if (form.nome_pizza && form.imagem_id && form.endereco) {
             try {
-                await UpdatePizzaService.updatePizza(form, dados.key)
+                await UpdateService.update("pizzas", form, dados.key)
                 setForm({})
                 props.navigation.navigate("Menu", { atualizar: true })
                 Alert.alert("Dados Atualizados com Sucesso")

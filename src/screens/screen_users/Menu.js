@@ -8,7 +8,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import MapView, {Marker} from "react-native-maps";
 import * as Location from "expo-location";
 import { useEffect } from 'react';
-import * as GetPizzaService from "../../services/firebase_firestore_database_services/GetPizzaService";
+import * as GetService from "../../services/firebase_firestore_database_services/GetService";
 
 
 export default function Menu(props) {
@@ -55,7 +55,7 @@ export default function Menu(props) {
 
   const buscarPizza = async () => {
     try {
-        let dados = await GetPizzaService.getPizza()
+        let dados = await GetService.get("pizzas")
         console.log(dados)
         setPizza(dados)
     } catch (error) {
