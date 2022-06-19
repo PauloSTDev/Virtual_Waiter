@@ -8,7 +8,7 @@ import CadastroUser from './src/screens/screen_users/CadastroUser';
 import CadastroPizza from './src/screens/screen_admin/CadastroPizza';
 import { LogBox } from 'react-native';
 import ModeloExpo from './src/screens/screen_users/ModeloExpo';
-import Desenvolvedor from './src/screens/screen_users/Desenvolvedor';
+import Sobre from './src/screens/screen_users/Sobre.js';
 import Arquitetura from './src/screens/screen_users/Arquitetura';
 import UpdateCadastroPizza from './src/screens/screen_admin/UpdateCadastroPizza';
 import CadastroBebidas from './src/screens/screen_admin/CadastroBebidas';
@@ -109,11 +109,11 @@ export default function App() {
           }
         />
         <Stack.Screen
-          name="Desenvolvedor"
-          component={Desenvolvedor}
+          name="Sobre"
+          component={Sobre}
           options={
             {
-              title: "Desenvolvedor",
+              title: "Sobre",
               headerTintColor: '#fff',
               headerTitleAlign: 'center',
               headerStyle: {
