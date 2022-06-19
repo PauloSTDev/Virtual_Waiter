@@ -32,8 +32,8 @@ export default function Registro(props) {
             <View style={styles.container}>
                 <View style={styles.linha}>
                     <View style={styles.coluna}>
-                        <Text style={styles.campo}>Nome da Pizza:</Text>
-                        <Text>{data.nome_pizza}</Text>
+                        <Text style={styles.campo}>Nome do Produto:</Text>
+                        <Text>{data.nome_produto}</Text>
                     </View>
                 </View>
                 <View style={styles.linha}>

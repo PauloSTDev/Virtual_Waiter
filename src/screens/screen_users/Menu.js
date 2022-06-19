@@ -5,7 +5,7 @@ import { FloatingAction } from "react-native-floating-action";
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import MapView, {Marker} from "react-native-maps";
+import MapView, { Marker } from "react-native-maps";
 import * as Location from "expo-location";
 import { useEffect } from 'react';
 import * as GetService from "../../services/firebase_firestore_database_services/GetService";
@@ -14,6 +14,7 @@ import * as GetService from "../../services/firebase_firestore_database_services
 export default function Menu(props) {
 
   const [pizza, setPizza] = useState([])
+  const [bebida, setBebida] = useState([])
   const [location, setLocation] = useState({
     coords: {
       latitude: -28.2450385,
@@ -22,6 +23,13 @@ export default function Menu(props) {
   })
 
   const actions = [
+    {
+      text: "Cadastro de Bebidas",
+      icon: <MaterialCommunityIcons name="cup-water" size={24} color="white" />,
+      name: "CadastroBebidas",
+      position: 3,
+      color: '#de6118',
+    },
     {
       text: "Cadastro de Pizzas",
       icon: <AntDesign name="edit" size={24} color="white" />,
@@ -55,13 +63,24 @@ export default function Menu(props) {
 
   const buscarPizza = async () => {
     try {
-        let dados = await GetService.get("pizzas")
-        console.log(dados)
-        setPizza(dados)
+      let dadosPizza = await GetService.get("pizzas")
+      console.log(dadosPizza)
+      setPizza(dadosPizza)
     } catch (error) {
 
     }
-}
+  }
+
+  const buscarBebida = async () => {
+    try {
+      let dadosBebida = await GetService.get("bebidas")
+      console.log(dadosBebida)
+      setBebida(dadosBebida)
+    } catch (error) {
+
+    }
+  }
+
 
   const { navigation } = props
 
@@ -76,7 +95,7 @@ export default function Menu(props) {
   }
 
   const GetMyPosition = async () => {
-    let {status} = await Location.requestForegroundPermissionsAsync();
+    let { status } = await Location.requestForegroundPermissionsAsync();
     if (status !== "granted") {
       return console.log("permissão negada!");
     } else {
@@ -85,10 +104,11 @@ export default function Menu(props) {
       setLocation(myLocation)
     }
   }
-useEffect(() => {
-  GetMyPosition()
-  buscarPizza()
-}, [props])
+  useEffect(() => {
+    GetMyPosition()
+    buscarPizza()
+    buscarBebida()
+  }, [props])
 
 
   useLayoutEffect(() => {
@@ -103,41 +123,52 @@ useEffect(() => {
   return (
     <View style={styles.container}>
       <MapView
-      style={styles.map}
-      initialRegion={{
-        latitude: location.coords.latitude,
-        longitude: location.coords.longitude,
-        latitudeDelta: 0.07,
-        longitudeDelta: 0.07,
-      }}>
+        style={styles.map}
+        initialRegion={{
+          latitude: location.coords.latitude,
+          longitude: location.coords.longitude,
+          latitudeDelta: 0.07,
+          longitudeDelta: 0.07,
+        }}>
 
-      {location && <Marker
-      coordinate={{
-        latitude: location.coords.latitude,
-        longitude: location.coords.longitude,
-      }}
-      title="Minha posição"
-      icon={require("../../../assets/my_location.png")}
-      />  
-    }
+        {location && <Marker
+          coordinate={{
+            latitude: location.coords.latitude,
+            longitude: location.coords.longitude,
+          }}
+          title="Minha posição"
+          icon={require("../../../assets/my_location.png")}
+        />
+        }
 
-    {pizza.map((pizza, key)=> <Marker
-    key={key}
-    coordinate={{
-      latitude: pizza.lat,
-      longitude: pizza.lng,
-    }}
-    icon={require("../../../assets/pizza_location.png")}
-    title={"Pizza de "+pizza.nome_pizza}
-    onPress={(()=> Alert.alert("Pizza de "+pizza.nome_pizza, "Status: Em processamento\nEstimativa de Tempo: 30 mins"))}
-    />)}
+        {pizza.map((pizza, key) => <Marker
+          key={key}
+          coordinate={{
+            latitude: pizza.lat,
+            longitude: pizza.lng,
+          }}
+          icon={require("../../../assets/produto_location.png")}
+          title={"Pizza de " + pizza.nome_produto}
+          onPress={(() => Alert.alert("Pizza de " + pizza.nome_produto, "Status: Em processamento\nEstimativa de Tempo: 30 mins"))}
+        />)}
 
-    </MapView>
+        {bebida.map((bebida, key) => <Marker
+          key={key}
+          coordinate={{
+            latitude: bebida.lat,
+            longitude: bebida.lng,
+          }}
+          icon={require("../../../assets/produto_location.png")}
+          title={"Bebida " + bebida.nome_produto}
+          onPress={(() => Alert.alert("Bebida " + bebida.nome_produto, "Status: Em processamento\nEstimativa de Tempo: 30 mins"))}
+        />)}
+
+      </MapView>
       <FloatingAction
         actions={actions}
         color={"#de6118"}
         onPressItem={name => {
-            navigation.navigate(name)
+          navigation.navigate(name)
         }}
       />
     </View>

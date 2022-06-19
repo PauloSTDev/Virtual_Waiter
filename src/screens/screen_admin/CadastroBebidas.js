@@ -5,7 +5,7 @@ import * as PostService from "../../services/firebase_firestore_database_service
 import * as GetService from "../../services/firebase_firestore_database_services/GetService";
 import Registro from '../../components/Registro';
 
-export default function CadastroBebidas() {
+export default function CadastroBebidas(props) {
 
     const [form, setForm] = useState({})
     const {navigation } = props
@@ -25,7 +25,7 @@ export default function CadastroBebidas() {
     }, [])
 
     const efetuarCadastro = async () => {
-        if (form.nome_bebida && form.imagem_id && form.endereco) {
+        if (form.nome_produto && form.imagem_id && form.endereco) {
             try {
                 await PostService.post("bebidas",form)
                 Alert.alert("Dados Registrados com Sucesso")
@@ -46,8 +46,8 @@ export default function CadastroBebidas() {
             <View style={styles.input}>
                 <TextInput
                     placeholder='Nome da Bebida'
-                    value={form.nome_bebida}
-                    onChangeText={(value) => setForm(Object.assign({}, form, { nome_bebida: value }))}
+                    value={form.nome_produto}
+                    onChangeText={(value) => setForm(Object.assign({}, form, { nome_produto: value }))}
                 />
             </View>
             <View style={styles.input}>

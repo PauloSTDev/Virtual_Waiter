@@ -25,7 +25,7 @@ export default function CadastroPizza(props) {
     }, [])
 
     const efetuarCadastro = async () => {
-        if (form.nome_pizza && form.imagem_id && form.endereco) {
+        if (form.nome_produto && form.imagem_id && form.endereco) {
             try {
                 await PostService.post("pizzas", form)
                 Alert.alert("Dados Registrados com Sucesso")
@@ -46,8 +46,8 @@ export default function CadastroPizza(props) {
             <View style={styles.input}>
                 <TextInput
                     placeholder='Nome da Pizza'
-                    value={form.nome_pizza}
-                    onChangeText={(value) => setForm(Object.assign({}, form, { nome_pizza: value }))}
+                    value={form.nome_produto}
+                    onChangeText={(value) => setForm(Object.assign({}, form, { nome_produto: value }))}
                 />
             </View>
             <View style={styles.input}>

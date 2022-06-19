@@ -9,14 +9,14 @@ export default function UpdateCadastroPizza(props) {
 
     useLayoutEffect(() => {
         setForm({
-            nome_pizza: dados.nome_pizza,
+            nome_produto: dados.nome_produto,
             imagem_id: dados.imagem_id,
             endereco: dados.endereco
         })
     }, [props])
 
     const AtualizarCadastro = async () => {
-        if (form.nome_pizza && form.imagem_id && form.endereco) {
+        if (form.nome_produto && form.imagem_id && form.endereco) {
             try {
                 await UpdateService.update("pizzas", form, dados.key)
                 setForm({})
@@ -35,8 +35,8 @@ export default function UpdateCadastroPizza(props) {
             <Text style={{ textAlign: "center" }}>Atualize os dados da Pizza:</Text>
             <View style={styles.input}>
                 <TextInput
-                    value={form.nome_pizza}
-                    onChangeText={(value) => setForm(Object.assign({}, form, { nome_pizza: value }))}
+                    value={form.nome_produto}
+                    onChangeText={(value) => setForm(Object.assign({}, form, { nome_produto: value }))}
                 />
             </View>
             <View style={styles.input}>
