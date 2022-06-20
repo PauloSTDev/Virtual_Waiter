@@ -12,7 +12,7 @@ export default function Registro(props) {
     
 
     const data = props.dados;
-    const excluirPizza = () => {
+    const excluir = () => {
         Alert.alert("Deseja Excluir:", "Esses dados serão apagados para sempre!", [
             {
                 text: "Cancel",
@@ -22,7 +22,6 @@ export default function Registro(props) {
                 text: "OK", onPress: async () => {
                     try {
                         await DeleteService.deleteCollection(data.tipo, data.key)
-                        console.log(data.key+ " Pizzas");
                         Alert.alert("Dados Excluídos com Sucesso")
                         props.navigation.navigate("Menu", { atualizar: true })
                     } catch (error) {
@@ -58,10 +57,10 @@ export default function Registro(props) {
                 <Image />
                 <View style={styles.linha}>
                     <View style={styles.coluna}>
-                        <Button title='Editar' color={'red'} onPress={() => props.navigation.navigate("UpdateCadastroPizza", {data})} />
+                        <Button title='Editar' color={'red'} onPress={() => props.navigation.navigate("UpdateCadastro", {data})} />
                     </View>
                     <View style={styles.coluna}>
-                        <Button title='Excluir' color={'red'} onPress={excluirPizza} />
+                        <Button title='Excluir' color={'red'} onPress={excluir} />
                     </View>
                 </View>
             </View>

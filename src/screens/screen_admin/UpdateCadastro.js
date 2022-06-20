@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, TextInput, Button, StatusBar, Alert } from 'rea
 import React, { useLayoutEffect, useState } from 'react'
 import * as UpdateService from "../../services/firebase_firestore_database_services/UpdateService";
 
-export default function UpdateCadastroPizza(props) {
+export default function UpdateCadastro(props) {
     const dados = props.route.params.data;
     const [form, setForm] = useState({})
 
