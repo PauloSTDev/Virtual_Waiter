@@ -11,7 +11,7 @@ import ModeloExpo from './src/screens/screen_users/ModeloExpo';
 import Sobre from './src/screens/screen_users/Sobre.js';
 import Arquitetura from './src/screens/screen_users/Arquitetura';
 import UpdateCadastro from './src/screens/screen_admin/UpdateCadastro';
-import CadastroBebidas from './src/screens/screen_admin/CadastroBebidas';
+import CadastroProdutos from './src/screens/screen_admin/CadastroProdutos';
 import Faq from './src/screens/screen_users/Faq';
 
 LogBox.ignoreLogs([
@@ -161,11 +161,11 @@ export default function App() {
           }
         />
         <Stack.Screen
-          name="CadastroBebidas"
-          component={CadastroBebidas}
+          name="CadastroProdutos"
+          component={CadastroProdutos}
           options={
             {
-              title: "Cadastro de Bebidas",
+              title: "Cadastro de Produtos",
               headerTintColor: '#fff',
               headerTitleAlign: 'center',
               headerStyle: {

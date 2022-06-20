@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Button, Alert, Dimensions } from 'react-native'
+import { StyleSheet, Text, View, Button, Alert, Dimensions, Image } from 'react-native'
 import React, { useLayoutEffect, useState } from 'react'
 import * as Logoff from '../../services/firebase_authentication_service/Logoff'
 import { FloatingAction } from "react-native-floating-action";
@@ -7,9 +7,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import MapView, { Marker } from "react-native-maps";
 import * as Location from "expo-location";
-import { useEffect } from 'react';
 import * as GetService from "../../services/firebase_firestore_database_services/GetService";
-
 
 export default function Menu(props) {
 
@@ -20,22 +18,24 @@ export default function Menu(props) {
       latitude: -28.2450385,
       longitude: -52.4265506,
     }
-  })
+  })  
 
   const actions = [
     {
       text: "Cadastro de Bebidas",
       icon: <MaterialCommunityIcons name="cup-water" size={24} color="white" />,
-      name: "CadastroBebidas",
+      name: "CadastroProdutosBebidas",
       position: 5,
       color: '#de6118',
+      key: 5
     },
     {
       text: "Cadastro de Pizzas",
       icon: <AntDesign name="edit" size={24} color="white" />,
-      name: "CadastroPizza",
+      name: "CadastroProdutosPizzas",
       position: 4,
       color: '#de6118',
+      key: 4
     },
     {
       text: "FAQ",
@@ -43,14 +43,16 @@ export default function Menu(props) {
       name: "Faq",
       position: 3,
       color: '#de6118',
+      key: 3
     },
-    
+
     {
       text: "Modelo Expo",
       icon: <MaterialCommunityIcons name="react" size={24} color="white" />,
       name: "ModeloExpo",
       position: 2,
-      color: '#de6118'
+      color: '#de6118',
+      key: 2
     },
     {
       text: "Sobre",
@@ -58,6 +60,7 @@ export default function Menu(props) {
       name: "Sobre",
       position: 1,
       color: '#de6118',
+      key: 1
 
     },
     {
@@ -66,6 +69,7 @@ export default function Menu(props) {
       name: "Arquitetura",
       position: 0,
       color: '#de6118',
+      key: 0
     },
   ];
 
@@ -109,20 +113,19 @@ export default function Menu(props) {
       setLocation(myLocation)
     }
   }
-  useEffect(() => {
-    GetMyPosition()
-    buscarPizza()
-    buscarBebida()
-  }, [props])
 
 
   useLayoutEffect(() => {
+    GetMyPosition()
+    buscarPizza()
+    buscarBebida()
+
     navigation.setOptions({
       headerTitleAlign: "center",
       headerLeft: () => <Button title='Sobre' onPress={() => navigation.navigate("Sobre")} color={"#de6118"} />,
       headerRight: () => <Button title='Logoff' onPress={logoff} color={"#de6118"} />
     })
-  }, [])
+  }, [bebida])
 
 
   return (
@@ -172,8 +175,19 @@ export default function Menu(props) {
       <FloatingAction
         actions={actions}
         color={"#de6118"}
-        onPressItem={name => {
-          navigation.navigate(name)
+        onPressItem={(name) => {
+          if(name == "CadastroProdutosPizzas"){
+            props.navigation.navigate("CadastroProdutos", {tipo: "pizzas", produto: pizza})
+          }
+          else if (name == "CadastroProdutosBebidas"){
+            props.navigation.navigate("CadastroProdutos",  {tipo: "bebidas", produto: bebida})
+          }
+          else{
+            props.navigation.navigate(name)
+          }
+            
+
+
         }}
       />
     </View>
@@ -189,6 +203,6 @@ const styles = StyleSheet.create({
   map: {
     width: Dimensions.get("window").width,
     height: Dimensions.get("window").height
-  }
+  },
 
 })

@@ -1,34 +1,36 @@
 import React, { useState, useLayoutEffect } from 'react'
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, Button, Alert, FlatList } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, Alert, FlatList, Image } from 'react-native';
 import * as PostService from "../../services/firebase_firestore_database_services/PostService";
 import * as GetService from "../../services/firebase_firestore_database_services/GetService";
 import Registro from '../../components/Registro';
 
-export default function CadastroBebidas(props) {
+export default function CadastroProdutos(props) {
+
 
     const [form, setForm] = useState({})
     const {navigation } = props
-    const [bebida, setbebida] = useState([])
+    const [produto, setProduto] = useState([])
 
-    const buscarbebida = async () => {
+    const buscarProduto = async () => {
         try {
-            let dados = await GetService.get("bebidas")
-            setbebida(dados)
+            //console.log("Tipo: "+props.route.params.produto[0].imagem_id);
+            let dados = await GetService.get(props.route.params.tipo)
+            setProduto(dados)
         } catch (error) {
 
         }
     }
 
     useLayoutEffect(() => {
-        buscarbebida()
-        console.log(bebida);
+        //console.log(props);
+        buscarProduto()
     }, [])
 
     const efetuarCadastro = async () => {
         if (form.nome_produto && form.imagem_id && form.endereco) {
             try {
-                await PostService.post("bebidas",form)
+                await PostService.post(props.route.params.tipo, form)
                 Alert.alert("Dados Registrados com Sucesso")
                 setForm({})
                 navigation.navigate("Menu", { atualizar: true })
@@ -43,10 +45,10 @@ export default function CadastroBebidas(props) {
 
     return (
         <View style={styles.container}>
-            <Text style={{ textAlign: "center" }}>Informe os dados da Bebida:</Text>
+            <Text style={{ textAlign: "center" }}>Informe os dados do Produto {props.route.params.tipo}</Text>
             <View style={styles.input}>
                 <TextInput
-                    placeholder='Nome da Bebida'
+                    placeholder='Nome Produto'
                     value={form.nome_produto}
                     onChangeText={(value) => setForm(Object.assign({}, form, { nome_produto: value }))}
                 />
@@ -69,17 +71,16 @@ export default function CadastroBebidas(props) {
             <View style={styles.linha}>
                 <View style={styles.coluna}>
                     <Button
-                        title='Registrar bebida'
+                        title='Registrar Produto'
                         onPress={efetuarCadastro}
                         color={"#de6118"}
                     />
                 </View>
             </View>
             <StatusBar style="auto" />
-
             <FlatList
-                data={bebida}
-                renderItem={({ item }) => <Registro dados={item} buscarbebida={buscarbebida} navigation={navigation} />}
+                data={produto}
+                renderItem={({ item }) => <Registro dados={item} buscarProduto={buscarProduto} navigation={navigation} props={props}/>}
                 keyExtractor={item => item.key}
             />            
         </View >
@@ -107,5 +108,5 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: "row",
         marginLeft: 5
-    },
+    }
 });

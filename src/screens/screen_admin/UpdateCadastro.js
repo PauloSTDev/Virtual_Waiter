@@ -8,7 +8,7 @@ export default function UpdateCadastro(props) {
 
 
     useLayoutEffect(() => {
-        console.log("Dados: "+dados);
+        console.log("Dados: "+props.navigation);
         setForm({
             nome_produto: dados.nome_produto,
             imagem_id: dados.imagem_id,
