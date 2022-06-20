@@ -1,4 +1,4 @@
-# Virtual Waiter
+# Virtual Waiter - Desenvolvedor/Integrante: Paulo Afonso Della Mêa dos Santos
 
 ## Bem vindo(a) ao App Virtual Waiter
 
