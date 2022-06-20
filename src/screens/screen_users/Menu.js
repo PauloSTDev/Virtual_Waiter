@@ -27,16 +27,24 @@ export default function Menu(props) {
       text: "Cadastro de Bebidas",
       icon: <MaterialCommunityIcons name="cup-water" size={24} color="white" />,
       name: "CadastroBebidas",
-      position: 3,
+      position: 5,
       color: '#de6118',
     },
     {
       text: "Cadastro de Pizzas",
       icon: <AntDesign name="edit" size={24} color="white" />,
       name: "CadastroPizza",
+      position: 4,
+      color: '#de6118',
+    },
+    {
+      text: "FAQ",
+      icon: <MaterialCommunityIcons name="function" size={24} color="white" />,
+      name: "Faq",
       position: 3,
       color: '#de6118',
     },
+    
     {
       text: "Modelo Expo",
       icon: <MaterialCommunityIcons name="react" size={24} color="white" />,
@@ -45,9 +53,9 @@ export default function Menu(props) {
       color: '#de6118'
     },
     {
-      text: "Desenvolvedor",
+      text: "Sobre",
       icon: <MaterialIcons name="group-work" size={24} color="white" />,
-      name: "Desenvolvedor",
+      name: "Sobre",
       position: 1,
       color: '#de6118',
 

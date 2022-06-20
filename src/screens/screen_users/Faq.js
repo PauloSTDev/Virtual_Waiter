@@ -5,7 +5,7 @@ export default function Faq() {
   return (
     <View style={styles.container}>
       <Text style={styles.texto}>Funcionalidades do Aplicativo:</Text>
-      <Text style={styles.texto}>Localização do dispositivo, criar Marcações no mapa e consultar informar sobre, editar, atualizar e excluir marcações.</Text>
+      <Text style={styles.texto}>Funcionalidade de login, cadastro, LogOff, localização do dispositivo, criar marcações no mapa, podendo visualizar, editar, atualizar e excluir as mesmas, tudo isso utilizando Firebase.</Text>
     </View>
   )
 }

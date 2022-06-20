@@ -12,7 +12,7 @@ import Sobre from './src/screens/screen_users/Sobre.js';
 import Arquitetura from './src/screens/screen_users/Arquitetura';
 import UpdateCadastroPizza from './src/screens/screen_admin/UpdateCadastroPizza';
 import CadastroBebidas from './src/screens/screen_admin/CadastroBebidas';
-import Faq from './src/screens/screen_users/FAQ';
+import Faq from './src/screens/screen_users/Faq';
 
 LogBox.ignoreLogs([
   'AsyncStorage'
