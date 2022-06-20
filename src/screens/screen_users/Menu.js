@@ -72,7 +72,6 @@ export default function Menu(props) {
   const buscarPizza = async () => {
     try {
       let dadosPizza = await GetService.get("pizzas")
-      console.log(dadosPizza)
       setPizza(dadosPizza)
     } catch (error) {
 
@@ -82,7 +81,6 @@ export default function Menu(props) {
   const buscarBebida = async () => {
     try {
       let dadosBebida = await GetService.get("bebidas")
-      console.log(dadosBebida)
       setBebida(dadosBebida)
     } catch (error) {
 
@@ -108,7 +106,6 @@ export default function Menu(props) {
       return console.log("permissão negada!");
     } else {
       let myLocation = await Location.getCurrentPositionAsync({})
-      console.log(myLocation);
       setLocation(myLocation)
     }
   }

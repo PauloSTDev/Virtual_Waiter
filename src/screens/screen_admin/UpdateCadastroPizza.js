@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TextInput, Button, StatusBar, Alert} from 'react-native'
+import { StyleSheet, Text, View, TextInput, Button, StatusBar, Alert } from 'react-native'
 import React, { useLayoutEffect, useState } from 'react'
 import * as UpdateService from "../../services/firebase_firestore_database_services/UpdateService";
 
@@ -8,6 +8,7 @@ export default function UpdateCadastroPizza(props) {
 
 
     useLayoutEffect(() => {
+        console.log("Dados: "+dados);
         setForm({
             nome_produto: dados.nome_produto,
             imagem_id: dados.imagem_id,
@@ -17,22 +18,23 @@ export default function UpdateCadastroPizza(props) {
 
     const AtualizarCadastro = async () => {
         if (form.nome_produto && form.imagem_id && form.endereco) {
+
             try {
-                await UpdateService.update("pizzas", form, dados.key)
+                await UpdateService.update(dados.tipo, form, dados.key)
                 setForm({})
                 props.navigation.navigate("Menu", { atualizar: true })
                 Alert.alert("Dados Atualizados com Sucesso")
             } catch (error) {
-                Alert.alert("Erro ao registrar", "Verifique os campos, em especial o endereço!")
+                console.log("erros: "+error);
             }
         } else {
             Alert.alert("Campos não preenchidos corretamente!")
         }
     }
-    
+
     return (
         <View style={styles.container}>
-            <Text style={{ textAlign: "center" }}>Atualize os dados da Pizza:</Text>
+            <Text style={{ textAlign: "center" }}>Atualize os dados do Produto</Text>
             <View style={styles.input}>
                 <TextInput
                     value={form.nome_produto}

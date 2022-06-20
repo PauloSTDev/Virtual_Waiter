@@ -80,7 +80,7 @@ export default function App() {
           component={CadastroPizza}
           options={
             {
-              title: "Registro de Usuários",
+              title: "Cadastro de Pizzas",
               headerTintColor: '#fff',
               headerTitleAlign: 'center',
               headerStyle: {

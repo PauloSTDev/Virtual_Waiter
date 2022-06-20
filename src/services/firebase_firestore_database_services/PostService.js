@@ -11,6 +11,7 @@ export const post = (collectionName, dados) => {
             let lng = coordenadas.lng
             dados.lat = lat
             dados.lng = lng
+            dados.tipo = collectionName
             const docId = await addDoc(collection(db, collectionName), dados)
             resolve(docId)
         } catch (error) {

@@ -1,11 +1,17 @@
 import { StyleSheet, Text, View, Button, Alert, Image } from 'react-native'
-import React from 'react'
+import React, { useEffect, useLayoutEffect } from 'react'
 import * as DeleteService from '../services/firebase_firestore_database_services/DeleteService';
 
 export default function Registro(props) {
 
-    const data = props.dados;
 
+    useEffect(() => {
+        console.log("Dados: "+props.dados);
+    }, [props])
+    
+    
+
+    const data = props.dados;
     const excluirPizza = () => {
         Alert.alert("Deseja Excluir:", "Esses dados serão apagados para sempre!", [
             {
@@ -15,7 +21,8 @@ export default function Registro(props) {
             {
                 text: "OK", onPress: async () => {
                     try {
-                        await DeleteService.deleteCollection("pizzas", data.key)
+                        await DeleteService.deleteCollection(data.tipo, data.key)
+                        console.log(data.key+ " Pizzas");
                         Alert.alert("Dados Excluídos com Sucesso")
                         props.navigation.navigate("Menu", { atualizar: true })
                     } catch (error) {
@@ -32,7 +39,7 @@ export default function Registro(props) {
             <View style={styles.container}>
                 <View style={styles.linha}>
                     <View style={styles.coluna}>
-                        <Text style={styles.campo}>Nome Produto:</Text>
+                        <Text style={styles.campo}>Nome do Produto:</Text>
                         <Text>{data.nome_produto}</Text>
                     </View>
                 </View>

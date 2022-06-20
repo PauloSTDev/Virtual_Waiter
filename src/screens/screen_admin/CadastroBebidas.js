@@ -22,6 +22,7 @@ export default function CadastroBebidas(props) {
 
     useLayoutEffect(() => {
         buscarbebida()
+        console.log(bebida);
     }, [])
 
     const efetuarCadastro = async () => {

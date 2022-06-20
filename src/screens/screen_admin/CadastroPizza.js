@@ -1,9 +1,10 @@
-import React, { useState, useLayoutEffect } from 'react'
+import React, { useState } from 'react'
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, Button, Alert, FlatList } from 'react-native';
 import * as PostService from "../../services/firebase_firestore_database_services/PostService";
 import * as GetService from "../../services/firebase_firestore_database_services/GetService";
 import Registro from '../../components/Registro';
+import { useEffect } from 'react';
 
 export default function CadastroPizza(props) {
 
@@ -20,7 +21,7 @@ export default function CadastroPizza(props) {
         }
     }
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         buscarPizza()
     }, [])
 
