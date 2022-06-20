@@ -46,7 +46,7 @@ export default function Registro(props) {
             <View style={styles.container}>
                 <View style={styles.linha}>
                     <View style={styles.coluna}>
-                        <Text style={styles.campo}>Nome Produto:</Text>
+                        <Text style={styles.campo}>Nome Produto</Text>
                         <Text>{data.nome_produto}</Text>
                     </View>
                 </View>
@@ -58,7 +58,7 @@ export default function Registro(props) {
                 </View>
                 <View style={styles.linha}>
                     <View style={styles.coluna}>
-                        <Text style={styles.campo}>Imagem Id:</Text>
+                        <Text style={styles.campo}>Imagem:</Text>
                         <Image
                             style={styles.image}
                             source={{ uri: url}}

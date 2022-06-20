@@ -7,9 +7,9 @@ import Registro from '../../components/Registro';
 
 export default function CadastroProdutos(props) {
 
-
     const [form, setForm] = useState({})
     const {navigation } = props
+    
     const [produto, setProduto] = useState([])
 
     const buscarProduto = async () => {
@@ -23,6 +23,7 @@ export default function CadastroProdutos(props) {
     }
 
     useLayoutEffect(() => {
+        props.navigation.setOptions({ title: 'Cadastro de '+props.route.params.tipo })
         //console.log(props);
         buscarProduto()
     }, [])
@@ -45,7 +46,7 @@ export default function CadastroProdutos(props) {
 
     return (
         <View style={styles.container}>
-            <Text style={{ textAlign: "center" }}>Informe os dados do Produto {props.route.params.tipo}</Text>
+            <Text style={{ textAlign: "center" }}>Informe os dados do Produto</Text>
             <View style={styles.input}>
                 <TextInput
                     placeholder='Nome Produto'
