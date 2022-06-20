@@ -1,6 +1,7 @@
 # Virtual Waiter
 
-App Garçom Virtual, fazemos os pedidos através do App e podemos verificar sua localização e Status.
+## Bem vindo(a) ao App Virtual Waiter
 
+App Garçom Virtual, fazemos os pedidos através do App e podemos verificar sua localização, Status imagem do produto e alterar os dados.
 
-Encontrar o cardápio, o valor final e os produtos adicionados ao carrinho.
+Mini Tutorial: https://drive.google.com/file/d/1GDK37ViOlFT8Hbmr1-EaIpL09p3TAS-G/view?usp=sharing
